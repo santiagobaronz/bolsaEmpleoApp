@@ -40,10 +40,10 @@ public class Results extends javax.swing.JFrame {
         showAllButton = new javax.swing.JButton();
         showByName = new javax.swing.JButton();
         showByAge = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        showByHigherExperience = new javax.swing.JButton();
         showByExperience = new javax.swing.JButton();
         showByProfession = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        showByYounger = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         goBackButton = new javax.swing.JButton();
@@ -106,10 +106,15 @@ public class Results extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Filtrar aspirante con mayor experiencia");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        showByHigherExperience.setText("Filtrar aspirante con mayor experiencia");
+        showByHigherExperience.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showByHigherExperienceMouseClicked(evt);
+            }
+        });
+        showByHigherExperience.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                showByHigherExperienceActionPerformed(evt);
             }
         });
 
@@ -137,10 +142,15 @@ public class Results extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setText("Filtrar aspirante más joven");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        showByYounger.setText("Filtrar aspirante más joven");
+        showByYounger.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showByYoungerMouseClicked(evt);
+            }
+        });
+        showByYounger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                showByYoungerActionPerformed(evt);
             }
         });
 
@@ -260,12 +270,12 @@ public class Results extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(showByYounger, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(showByProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(showByExperience, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(showByHigherExperience, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,17 +299,19 @@ public class Results extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showByName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showByExperience, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(showByExperience, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(showAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(showByName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showByAge, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showByProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(showByProfession, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(showByAge, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(showByHigherExperience, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(showByYounger, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
@@ -351,9 +363,9 @@ public class Results extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_showByAgeActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void showByHigherExperienceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showByHigherExperienceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_showByHigherExperienceActionPerformed
 
     private void showByExperienceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showByExperienceActionPerformed
         // TODO add your handling code here:
@@ -363,9 +375,9 @@ public class Results extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_showByProfessionActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void showByYoungerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showByYoungerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_showByYoungerActionPerformed
 
     private void showAllButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllButtonClicked
        
@@ -440,7 +452,7 @@ public class Results extends javax.swing.JFrame {
         
         for(int i=0; i < numberOfResults; i++){
             
-            String yearsToFind = array.get(i).yearsOfExperience;
+            String yearsToFind = array.get(i).age;
             
             if(years.equals(yearsToFind)){
             
@@ -470,9 +482,9 @@ public class Results extends javax.swing.JFrame {
         
         for(int i=0; i < numberOfResults; i++){
             
-            String yearsToFind = array.get(i).yearsOfExperience;
+            String professionToFind = array.get(i).profession;
             
-            if(profession.equals(yearsToFind)){
+            if(profession.equals(professionToFind)){
             
             data[i][0] = array.get(i).name + " " + array.get(i).lastName;
             data[i][1] = array.get(i).profession;
@@ -487,6 +499,77 @@ public class Results extends javax.swing.JFrame {
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
         
     }//GEN-LAST:event_showByProfessionMouseClicked
+
+    private void showByHigherExperienceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByHigherExperienceMouseClicked
+             
+        AddCV addcv = new AddCV();
+        ArrayList<Persona> array = AddCV.listaAspirantes;
+        int numberOfResults = array.size();
+
+        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String data[][] = new String[numberOfResults][5];
+        int mayor = 0;
+        
+        Persona aspirante = null;
+
+        for(int i=0; i < numberOfResults; i++){
+            
+            String number = array.get(i).yearsOfExperience;
+            int numberToFind = Integer.parseInt(number);
+            
+            if(numberToFind > mayor){
+                mayor = numberToFind;
+                aspirante = array.get(i);
+            }
+        }
+        
+        if(aspirante != null){
+            data[0][0] = aspirante.name + " " + aspirante.lastName;
+            data[0][1] = aspirante.profession;
+            data[0][2] = aspirante.yearsOfExperience;
+            data[0][3] = aspirante.age;
+            data[0][4] = aspirante.email;
+        }
+        
+        jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
+           
+    }//GEN-LAST:event_showByHigherExperienceMouseClicked
+
+    private void showByYoungerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByYoungerMouseClicked
+
+        AddCV addcv = new AddCV();
+        ArrayList<Persona> array = AddCV.listaAspirantes;
+        int numberOfResults = array.size();
+
+        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String data[][] = new String[numberOfResults][5];
+        int menor = 100;
+        
+        Persona aspirante = null;
+
+        for(int i=0; i < numberOfResults; i++){
+            
+            String number = array.get(i).age;
+            int numberToFind = Integer.parseInt(number);
+            
+            if(numberToFind < menor){
+                menor = numberToFind;
+                aspirante = array.get(i);
+            }
+        }
+        
+        if(aspirante != null){
+            data[0][0] = aspirante.name + " " + aspirante.lastName;
+            data[0][1] = aspirante.profession;
+            data[0][2] = aspirante.yearsOfExperience;
+            data[0][3] = aspirante.age;
+            data[0][4] = aspirante.email;
+        }
+        
+        jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
+
+       
+    }//GEN-LAST:event_showByYoungerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -537,8 +620,6 @@ public class Results extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton goBackButton;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
@@ -551,8 +632,10 @@ public class Results extends javax.swing.JFrame {
     private javax.swing.JButton showAllButton;
     private javax.swing.JButton showByAge;
     private javax.swing.JButton showByExperience;
+    private javax.swing.JButton showByHigherExperience;
     private javax.swing.JButton showByName;
     private javax.swing.JButton showByProfession;
+    private javax.swing.JButton showByYounger;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -144,7 +144,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton7" min="-2" pref="332" max="-2" attributes="0"/>
+                                  <Component id="showByYounger" min="-2" pref="332" max="-2" attributes="0"/>
                                   <Component id="showByProfession" min="-2" pref="332" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -154,7 +154,7 @@
               </Group>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="showByExperience" max="32767" attributes="0"/>
-                  <Component id="jButton4" min="-2" pref="288" max="-2" attributes="0"/>
+                  <Component id="showByHigherExperience" min="-2" pref="288" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -186,19 +186,23 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="showAllButton" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="showByName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="showByExperience" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="showAllButton" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="showByName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="showByAge" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="showByProfession" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="showByAge" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="showByHigherExperience" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton7" min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="showByYounger" min="-2" pref="33" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="181" max="-2" attributes="0"/>
               <EmptySpace pref="26" max="32767" attributes="0"/>
@@ -252,12 +256,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showByAgeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="showByHigherExperience">
       <Properties>
         <Property name="text" type="java.lang.String" value="Filtrar aspirante con mayor experiencia"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="showByHigherExperienceMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showByHigherExperienceActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="showByExperience">
@@ -278,12 +283,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showByProfessionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="showByYounger">
       <Properties>
         <Property name="text" type="java.lang.String" value="Filtrar aspirante m&#xe1;s joven"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="showByYoungerMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showByYoungerActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
