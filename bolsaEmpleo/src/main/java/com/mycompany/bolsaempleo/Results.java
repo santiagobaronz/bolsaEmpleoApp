@@ -4,6 +4,7 @@
  */
 package com.mycompany.bolsaempleo;
 
+import com.mycompany.bolsaempleo.Clases.Aspirante;
 import com.mycompany.bolsaempleo.Clases.Persona;
 import java.awt.List;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class Results extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         showAllButton = new javax.swing.JButton();
@@ -47,6 +49,13 @@ public class Results extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         goBackButton = new javax.swing.JButton();
+        hireButton = new javax.swing.JButton();
+        deleteByAge = new javax.swing.JButton();
+        showCompleteInfo = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        text1 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        text2 = new javax.swing.JTextArea();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -61,6 +70,8 @@ public class Results extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(450, 250));
@@ -159,15 +170,27 @@ public class Results extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Profesión", "Años de experiencia", "Edad", "Correo"
+                "Id", "Nombre", "Profesión", "Años de experiencia", "Edad", "Correo"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(jTable1);
@@ -183,6 +206,35 @@ public class Results extends javax.swing.JFrame {
                 goBackButtonActionPerformed(evt);
             }
         });
+
+        hireButton.setText("Contratar");
+        hireButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hireButtonMouseClicked(evt);
+            }
+        });
+
+        deleteByAge.setText("Eliminar aspirantes por experiencia");
+        deleteByAge.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteByAgeMouseClicked(evt);
+            }
+        });
+
+        showCompleteInfo.setText("Mostrar información completa de aspirante");
+        showCompleteInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showCompleteInfoMouseClicked(evt);
+            }
+        });
+
+        text1.setColumns(20);
+        text1.setRows(5);
+        jScrollPane1.setViewportView(text1);
+
+        text2.setColumns(20);
+        text2.setRows(5);
+        jScrollPane3.setViewportView(text2);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -268,14 +320,18 @@ public class Results extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(showByName, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(showByYounger, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(showByYounger, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(showByProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 3, Short.MAX_VALUE)
+                                        .addComponent(showByProfession, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(deleteByAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(showByExperience, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(showByHigherExperience, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(showByExperience, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(showByHigherExperience, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                    .addComponent(hireButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,9 +341,15 @@ public class Results extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(goBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 949, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(showCompleteInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,10 +373,19 @@ public class Results extends javax.swing.JFrame {
                         .addComponent(showByAge, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(showByHigherExperience, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(showByYounger, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(showByYounger, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(deleteByAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(hireButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(showCompleteInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -333,11 +404,11 @@ public class Results extends javax.swing.JFrame {
         String name = JOptionPane.showInputDialog("Ingrese el nombre y apellidos:");
         
         AddCV addcv = new AddCV();
-        ArrayList<Persona> array = AddCV.listaAspirantes;
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int numberOfResults = array.size();
 
-        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
-        String data[][] = new String[numberOfResults][5];
+        String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String data[][] = new String[numberOfResults][6];
         
         for(int i=0; i < numberOfResults; i++){
             
@@ -346,11 +417,12 @@ public class Results extends javax.swing.JFrame {
             
             if(nameToFind.equals(name)){
                 
-            data[i][0] = array.get(i).name + " " + array.get(i).lastName;
-            data[i][1] = array.get(i).profession;
-            data[i][2] = array.get(i).yearsOfExperience;
-            data[i][3] = array.get(i).age;
-            data[i][4] = array.get(i).email;
+            data[i][0] = String.valueOf(i);
+            data[i][1] = array.get(i).name + " " + array.get(i).lastName;
+            data[i][2] = array.get(i).profession;
+            data[i][3] = array.get(i).yearsOfExperience;
+            data[i][4] = array.get(i).age;
+            data[i][5] = array.get(i).email;
             
             }
         }
@@ -382,18 +454,19 @@ public class Results extends javax.swing.JFrame {
     private void showAllButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllButtonClicked
        
         AddCV addcv = new AddCV();
-        ArrayList<Persona> array = AddCV.listaAspirantes;
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int numberOfResults = array.size();
 
-        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
-        String data[][] = new String[numberOfResults][5];
+        String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String data[][] = new String[numberOfResults][6];
         
         for(int i=0; i < numberOfResults; i++){
-            data[i][0] = array.get(i).name + " " + array.get(i).lastName;
-            data[i][1] = array.get(i).profession;
-            data[i][2] = array.get(i).yearsOfExperience;
-            data[i][3] = array.get(i).age;
-            data[i][4] = array.get(i).email;
+            data[i][0] = String.valueOf(i);
+            data[i][1] = array.get(i).name + " " + array.get(i).lastName;
+            data[i][2] = array.get(i).profession;
+            data[i][3] = array.get(i).yearsOfExperience;
+            data[i][4] = array.get(i).age;
+            data[i][5] = array.get(i).email;
         }
         
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
@@ -414,11 +487,11 @@ public class Results extends javax.swing.JFrame {
         String years = JOptionPane.showInputDialog("Ingrese la cantidad de años de experiencia que busca:");
         
         AddCV addcv = new AddCV();
-        ArrayList<Persona> array = AddCV.listaAspirantes;
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int numberOfResults = array.size();
 
-        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
-        String data[][] = new String[numberOfResults][5];
+        String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String data[][] = new String[numberOfResults][6];
         
         for(int i=0; i < numberOfResults; i++){
             
@@ -426,11 +499,12 @@ public class Results extends javax.swing.JFrame {
             
             if(years.equals(yearsToFind)){
             
-            data[i][0] = array.get(i).name + " " + array.get(i).lastName;
-            data[i][1] = array.get(i).profession;
-            data[i][2] = array.get(i).yearsOfExperience;
-            data[i][3] = array.get(i).age;
-            data[i][4] = array.get(i).email;
+            data[i][0] = String.valueOf(i);
+            data[i][1] = array.get(i).name + " " + array.get(i).lastName;
+            data[i][2] = array.get(i).profession;
+            data[i][3] = array.get(i).yearsOfExperience;
+            data[i][4] = array.get(i).age;
+            data[i][5] = array.get(i).email;
             
             }
             
@@ -444,11 +518,11 @@ public class Results extends javax.swing.JFrame {
         String years = JOptionPane.showInputDialog("Ingrese la cantidad de años de edad que busca:");
         
         AddCV addcv = new AddCV();
-        ArrayList<Persona> array = AddCV.listaAspirantes;
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int numberOfResults = array.size();
 
-        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
-        String data[][] = new String[numberOfResults][5];
+        String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String data[][] = new String[numberOfResults][6];
         
         for(int i=0; i < numberOfResults; i++){
             
@@ -456,11 +530,12 @@ public class Results extends javax.swing.JFrame {
             
             if(years.equals(yearsToFind)){
             
-            data[i][0] = array.get(i).name + " " + array.get(i).lastName;
-            data[i][1] = array.get(i).profession;
-            data[i][2] = array.get(i).yearsOfExperience;
-            data[i][3] = array.get(i).age;
-            data[i][4] = array.get(i).email;
+            data[i][0] = String.valueOf(i);
+            data[i][1] = array.get(i).name + " " + array.get(i).lastName;
+            data[i][2] = array.get(i).profession;
+            data[i][3] = array.get(i).yearsOfExperience;
+            data[i][4] = array.get(i).age;
+            data[i][5] = array.get(i).email;
             
             }
             
@@ -474,11 +549,11 @@ public class Results extends javax.swing.JFrame {
         String profession = JOptionPane.showInputDialog("Ingrese la profesión al filtrar:");
         
         AddCV addcv = new AddCV();
-        ArrayList<Persona> array = AddCV.listaAspirantes;
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int numberOfResults = array.size();
 
-        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
-        String data[][] = new String[numberOfResults][5];
+        String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String data[][] = new String[numberOfResults][6];
         
         for(int i=0; i < numberOfResults; i++){
             
@@ -486,11 +561,12 @@ public class Results extends javax.swing.JFrame {
             
             if(profession.equals(professionToFind)){
             
-            data[i][0] = array.get(i).name + " " + array.get(i).lastName;
-            data[i][1] = array.get(i).profession;
-            data[i][2] = array.get(i).yearsOfExperience;
-            data[i][3] = array.get(i).age;
-            data[i][4] = array.get(i).email;
+            data[i][0] = String.valueOf(i);
+            data[i][1] = array.get(i).name + " " + array.get(i).lastName;
+            data[i][2] = array.get(i).profession;
+            data[i][3] = array.get(i).yearsOfExperience;
+            data[i][4] = array.get(i).age;
+            data[i][5] = array.get(i).email;
             
             }
             
@@ -503,12 +579,12 @@ public class Results extends javax.swing.JFrame {
     private void showByHigherExperienceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByHigherExperienceMouseClicked
              
         AddCV addcv = new AddCV();
-        ArrayList<Persona> array = AddCV.listaAspirantes;
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int numberOfResults = array.size();
 
-        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
-        String data[][] = new String[numberOfResults][5];
-        int mayor = 0;
+        String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String data[][] = new String[numberOfResults][6];
+        int mayor = 0, id = 0;
         
         Persona aspirante = null;
 
@@ -520,15 +596,17 @@ public class Results extends javax.swing.JFrame {
             if(numberToFind > mayor){
                 mayor = numberToFind;
                 aspirante = array.get(i);
+                id = i;
             }
         }
         
         if(aspirante != null){
-            data[0][0] = aspirante.name + " " + aspirante.lastName;
-            data[0][1] = aspirante.profession;
-            data[0][2] = aspirante.yearsOfExperience;
-            data[0][3] = aspirante.age;
-            data[0][4] = aspirante.email;
+            data[0][0] = String.valueOf(id);
+            data[0][1] = aspirante.name + " " + aspirante.lastName;
+            data[0][2] = aspirante.profession;
+            data[0][3] = aspirante.yearsOfExperience;
+            data[0][4] = aspirante.age;
+            data[0][5] = aspirante.email;
         }
         
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
@@ -538,12 +616,12 @@ public class Results extends javax.swing.JFrame {
     private void showByYoungerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByYoungerMouseClicked
 
         AddCV addcv = new AddCV();
-        ArrayList<Persona> array = AddCV.listaAspirantes;
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int numberOfResults = array.size();
 
-        String nombreColumnas [] = {"Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
+        String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
         String data[][] = new String[numberOfResults][5];
-        int menor = 100;
+        int menor = 100, id = 0;
         
         Persona aspirante = null;
 
@@ -555,21 +633,90 @@ public class Results extends javax.swing.JFrame {
             if(numberToFind < menor){
                 menor = numberToFind;
                 aspirante = array.get(i);
+                id = i;
             }
         }
         
         if(aspirante != null){
-            data[0][0] = aspirante.name + " " + aspirante.lastName;
-            data[0][1] = aspirante.profession;
-            data[0][2] = aspirante.yearsOfExperience;
-            data[0][3] = aspirante.age;
-            data[0][4] = aspirante.email;
+            data[0][0] = String.valueOf(id);
+            data[0][1] = aspirante.name + " " + aspirante.lastName;
+            data[0][2] = aspirante.profession;
+            data[0][3] = aspirante.yearsOfExperience;
+            data[0][4] = aspirante.age;
+            data[0][5] = aspirante.email;
         }
         
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
 
        
     }//GEN-LAST:event_showByYoungerMouseClicked
+
+    private void showCompleteInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showCompleteInfoMouseClicked
+
+        AddCV addcv = new AddCV();
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
+        int seleccionar = jTable1.rowAtPoint(evt.getPoint());
+        
+        text1.setText("");
+        
+        text1.append("Nombre completo: " + array.get(seleccionar).name + array.get(seleccionar).lastName);
+        text1.append("\n\nCorreo electronico: " + array.get(seleccionar).email);
+        text1.append("\n\nNumero de telefono: " + array.get(seleccionar).phoneNumber);
+        text1.append("\n\nEdad: " + array.get(seleccionar).age);
+        text1.append("\n\nCedula de ciudadania: " + array.get(seleccionar).idNumber);
+        text1.append("\n\nGenero: " + array.get(seleccionar).gender);
+        text1.append("\n\nProfesion: " + array.get(seleccionar).profession);
+        text1.append("\n\nAños de experiencia: " + array.get(seleccionar).yearsOfExperience);
+        text1.append("\n\nCorreo electronico: " + array.get(seleccionar).email);
+        text1.append("\n\nLugar de educacion: " + array.get(seleccionar).educationPlace);
+        text1.append("\n\nGrado: " + array.get(seleccionar).degree);
+        text1.append("\n\nInicio de educacion: " + array.get(seleccionar).startDateDegree);
+        text1.append("\n\nFinalizacion de educacion: " + array.get(seleccionar).endDateDegree);
+        text1.append("\n\nUltima compañia: " + array.get(seleccionar).lastCompany);
+        text1.append("\n\nFecha inicio ultimo trabajo: " + array.get(seleccionar).startLastJob);
+        text1.append("\n\nFecha finalizacion ultimo trabajo: " + array.get(seleccionar).endLastJob);
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showCompleteInfoMouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void deleteByAgeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteByAgeMouseClicked
+        AddCV addcv = new AddCV();
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
+        int numberOfResults = array.size();
+        
+        String age = JOptionPane.showInputDialog("Ingrese la edad minima de experiencia:");
+        int ageToFilter = Integer.parseInt(age);
+        
+        for(int i=0; i < numberOfResults; i++){
+            
+            String number = array.get(i).yearsOfExperience;
+            int numberToFind = Integer.parseInt(number);
+            
+            if(numberToFind < ageToFilter){
+               array.remove(i);
+            }
+        }
+        
+    }//GEN-LAST:event_deleteByAgeMouseClicked
+
+    private void hireButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hireButtonMouseClicked
+        
+        AddCV addcv = new AddCV();
+        ArrayList<Aspirante> array = AddCV.listaAspirantes;
+        
+        text2.setText("");
+        
+        String id = JOptionPane.showInputDialog("Id del aspirante a contratar: ");
+        int idToFilter = Integer.parseInt(id);
+        
+        text2.append("El aspirante " + array.get(idToFilter).name + " " + array.get(idToFilter).lastName +" fue contratado");
+        array.remove(idToFilter);
+        
+    }//GEN-LAST:event_hireButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -614,16 +761,21 @@ public class Results extends javax.swing.JFrame {
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
+    private javax.swing.JButton deleteByAge;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton goBackButton;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JButton hireButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
@@ -636,6 +788,9 @@ public class Results extends javax.swing.JFrame {
     private javax.swing.JButton showByName;
     private javax.swing.JButton showByProfession;
     private javax.swing.JButton showByYounger;
+    private javax.swing.JButton showCompleteInfo;
+    private javax.swing.JTextArea text1;
+    private javax.swing.JTextArea text2;
     // End of variables declaration//GEN-END:variables
 
 }

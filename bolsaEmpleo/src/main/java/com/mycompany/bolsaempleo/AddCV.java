@@ -4,6 +4,7 @@
  */
 package com.mycompany.bolsaempleo;
 
+import com.mycompany.bolsaempleo.Clases.Aspirante;
 import com.mycompany.bolsaempleo.Clases.Persona;
 import java.util.ArrayList;
 
@@ -600,7 +601,7 @@ public class AddCV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_startDateDegreeActionPerformed
 
-    public static ArrayList<Persona> listaAspirantes = new ArrayList<>();
+    public static ArrayList<Aspirante> listaAspirantes = new ArrayList<>();
        
     private void saveButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonClicked
         
@@ -633,7 +634,7 @@ public class AddCV extends javax.swing.JFrame {
         String yearsOfExperienceV = (String)yearsOfExperience.getText();
         String positionLastJobV = (String)positionLastJob.getText();
         
-        Persona aspirante = new Persona(nameV, lastNameV, emailV, phoneNumberV, ageV, idNumberV,
+        Aspirante aspirante = new Aspirante(nameV, lastNameV, emailV, phoneNumberV, ageV, idNumberV,
         professionV, genderV, educationPlaceV, degreeV, startDateDegreeV, endDateDegreeV,
         lastCompanyV, startLastJobV, endLastJobV, yearsOfExperienceV, positionLastJobV);
         
