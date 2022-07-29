@@ -1,27 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
- */
 package com.mycompany.bolsaempleo;
 
+// Importing the classes that are going to be used in the program.
 import com.mycompany.bolsaempleo.Clases.Aspirante;
 import com.mycompany.bolsaempleo.Clases.Persona;
-import java.awt.List;
 import java.util.ArrayList;
-import java.lang.reflect.Array;
-import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author santi
+ * Creating a class called Results that extends the JFrame class.
+ * @author Santiago Baron Zuleta
+ * Creation Date: 29/07/2022
  */
+
 public class Results extends javax.swing.JFrame {
 
-    /**
-     * Creates new form visualApp
-     */
+    // Creates new form visualApp
     public Results() {
         initComponents();   
         
@@ -389,16 +383,27 @@ public class Results extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
+    /**
+     * When the user clicks the exit menu item, exit the program.
+     * 
+     * @param evt The event that triggered the action.
+     */
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }
 
     private void showAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAllButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_showAllButtonActionPerformed
+    }
 
+    /**
+     * It takes the name of the user and searches for it in the list of aspirants, if it finds it, it
+     * shows the aspirant's information in a table
+     * 
+     * @param evt This is the event that is triggered when the button is clicked.
+     */
     private void showByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showByNameActionPerformed
         
         String name = JOptionPane.showInputDialog("Ingrese el nombre y apellidos:");
@@ -410,6 +415,7 @@ public class Results extends javax.swing.JFrame {
         String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
         String data[][] = new String[numberOfResults][6];
         
+        // Searching for a name in the array and then printing it out.
         for(int i=0; i < numberOfResults; i++){
             
             String nameToFind = array.get(i).name + " " + array.get(i).lastName;
@@ -427,6 +433,7 @@ public class Results extends javax.swing.JFrame {
             }
         }
         
+        // Creating a table with the data and the column names.
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
         
     }//GEN-LAST:event_showByNameActionPerformed
@@ -451,7 +458,12 @@ public class Results extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_showByYoungerActionPerformed
 
-    private void showAllButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllButtonClicked
+    /**
+     * It takes the data from the arraylist and puts it into a table
+     * 
+     * @param evt This is the event that is triggered when the button is clicked.
+     */
+    private void showAllButtonClicked(java.awt.event.MouseEvent evt) {
        
         AddCV addcv = new AddCV();
         ArrayList<Aspirante> array = AddCV.listaAspirantes;
@@ -460,6 +472,7 @@ public class Results extends javax.swing.JFrame {
         String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
         String data[][] = new String[numberOfResults][6];
         
+        // Creating a 2D array of strings and populating it with data from an array of objects.
         for(int i=0; i < numberOfResults; i++){
             data[i][0] = String.valueOf(i);
             data[i][1] = array.get(i).name + " " + array.get(i).lastName;
@@ -469,20 +482,33 @@ public class Results extends javax.swing.JFrame {
             data[i][5] = array.get(i).email;
         }
         
+        // Creating a table with the data and the column names.
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
-    }//GEN-LAST:event_showAllButtonClicked
+    }
 
-    private void goBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_goBackButtonActionPerformed
+    private void goBackButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
 
-    private void goBackButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButtonClicked
+    /**
+     * This function is called when the user clicks the "Go Back" button. It makes the current window
+     * invisible and makes the main menu visible
+     * 
+     * @param evt This is the event that is triggered when the button is clicked.
+     */
+    private void goBackButtonClicked(java.awt.event.MouseEvent evt) {
         this.setVisible(false);
         MainMenuApp v = new MainMenuApp();
-        v.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_goBackButtonClicked
+        v.setVisible(true);
+    }
 
-    private void showByExperienceClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByExperienceClicked
+    /**
+     * It shows the aspirants that have the same amount of years of experience as the one the user
+     * inputs
+     * 
+     * @param evt This is the event that is triggered when the button is clicked.
+     */
+    private void showByExperienceClicked(java.awt.event.MouseEvent evt) {
        
         String years = JOptionPane.showInputDialog("Ingrese la cantidad de años de experiencia que busca:");
         
@@ -493,6 +519,7 @@ public class Results extends javax.swing.JFrame {
         String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
         String data[][] = new String[numberOfResults][6];
         
+        // Creating a table with the results of the search.
         for(int i=0; i < numberOfResults; i++){
             
             String yearsToFind = array.get(i).yearsOfExperience;
@@ -510,11 +537,18 @@ public class Results extends javax.swing.JFrame {
             
         }
         
+        // Creating a table with the data and the column names.
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
         
-    }//GEN-LAST:event_showByExperienceClicked
+    }
 
-    private void showByAgeClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByAgeClicked
+    /**
+     * It takes the input from the user, and then it compares it with the age of each aspirant, and if
+     * it matches, it adds the aspirant to the table
+     * 
+     * @param evt This is the event that is triggered when the button is clicked.
+     */
+    private void showByAgeClicked(java.awt.event.MouseEvent evt) {
         String years = JOptionPane.showInputDialog("Ingrese la cantidad de años de edad que busca:");
         
         AddCV addcv = new AddCV();
@@ -524,10 +558,13 @@ public class Results extends javax.swing.JFrame {
         String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
         String data[][] = new String[numberOfResults][6];
         
+        // The above code is creating a table with the results of the search.
         for(int i=0; i < numberOfResults; i++){
             
             String yearsToFind = array.get(i).age;
             
+            // Checking if the years of experience is equal to the yearsToFind. If it is, then it will
+            // add the data to the data array.
             if(years.equals(yearsToFind)){
             
             data[i][0] = String.valueOf(i);
@@ -541,10 +578,16 @@ public class Results extends javax.swing.JFrame {
             
         }
         
+        // Creating a table with the data and the column names.
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
-    }//GEN-LAST:event_showByAgeClicked
+    }
 
-    private void showByProfessionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByProfessionMouseClicked
+    /**
+     * It shows the aspirants that have the same profession as the one the user inputs
+     * 
+     * @param evt This is the event that is triggered when the mouse is clicked.
+     */
+    private void showByProfessionMouseClicked(java.awt.event.MouseEvent evt) {
         
         String profession = JOptionPane.showInputDialog("Ingrese la profesión al filtrar:");
         
@@ -555,10 +598,13 @@ public class Results extends javax.swing.JFrame {
         String nombreColumnas [] = {"Id","Nombre","Profesión", "Años de experiencia", "Edad", "Correo"};
         String data[][] = new String[numberOfResults][6];
         
+        // Creating a table with the results of the search.
         for(int i=0; i < numberOfResults; i++){
             
             String professionToFind = array.get(i).profession;
             
+            // Checking if the profession is equal to the professionToFind. If it is, it will add the
+            // data to the data array.
             if(profession.equals(professionToFind)){
             
             data[i][0] = String.valueOf(i);
@@ -572,11 +618,18 @@ public class Results extends javax.swing.JFrame {
             
         }
         
+        // Creating a table with the data and the column names.
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
         
-    }//GEN-LAST:event_showByProfessionMouseClicked
+    }
 
-    private void showByHigherExperienceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByHigherExperienceMouseClicked
+    /**
+     * It gets the aspirants from the list, then it compares the years of experience of each one, and
+     * finally it shows the aspirant with the highest years of experience
+     * 
+     * @param evt This is the event that is triggered when the mouse is clicked.
+     */
+    private void showByHigherExperienceMouseClicked(java.awt.event.MouseEvent evt) {
              
         AddCV addcv = new AddCV();
         ArrayList<Aspirante> array = AddCV.listaAspirantes;
@@ -588,6 +641,7 @@ public class Results extends javax.swing.JFrame {
         
         Persona aspirante = null;
 
+        // Finding the aspirant with the most years of experience.
         for(int i=0; i < numberOfResults; i++){
             
             String number = array.get(i).yearsOfExperience;
@@ -600,6 +654,7 @@ public class Results extends javax.swing.JFrame {
             }
         }
         
+        // Creating a table with the data of the aspirant.
         if(aspirante != null){
             data[0][0] = String.valueOf(id);
             data[0][1] = aspirante.name + " " + aspirante.lastName;
@@ -609,11 +664,20 @@ public class Results extends javax.swing.JFrame {
             data[0][5] = aspirante.email;
         }
         
+        // Creating a table with the data and the column names.
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
            
-    }//GEN-LAST:event_showByHigherExperienceMouseClicked
+    }
 
-    private void showByYoungerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showByYoungerMouseClicked
+    /**
+     * It gets the list of aspirants from the AddCV class, then it gets the age of each aspirant and
+     * compares it to the age of the aspirant with the lowest age, if the aspirant's age is lower than
+     * the aspirant with the lowest age, then it replaces the aspirant with the lowest age with the
+     * aspirant with the lower age
+     * 
+     * @param evt This is the event that is triggered when the mouse is clicked.
+     */
+    private void showByYoungerMouseClicked(java.awt.event.MouseEvent evt) {
 
         AddCV addcv = new AddCV();
         ArrayList<Aspirante> array = AddCV.listaAspirantes;
@@ -625,6 +689,7 @@ public class Results extends javax.swing.JFrame {
         
         Persona aspirante = null;
 
+        // Finding the youngest person in the array.
         for(int i=0; i < numberOfResults; i++){
             
             String number = array.get(i).age;
@@ -637,6 +702,7 @@ public class Results extends javax.swing.JFrame {
             }
         }
         
+        // Creating a table with the data of the aspirant.
         if(aspirante != null){
             data[0][0] = String.valueOf(id);
             data[0][1] = aspirante.name + " " + aspirante.lastName;
@@ -646,19 +712,27 @@ public class Results extends javax.swing.JFrame {
             data[0][5] = aspirante.email;
         }
         
+        // Creating a table with the data and the column names.
         jTable1.setModel(new DefaultTableModel(data, nombreColumnas));
 
        
-    }//GEN-LAST:event_showByYoungerMouseClicked
+    }
 
-    private void showCompleteInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showCompleteInfoMouseClicked
+    /**
+     * It shows the complete information of the selected row in the table
+     * 
+     * @param evt This is the event that is triggered when the mouse is clicked.
+     */
+    private void showCompleteInfoMouseClicked(java.awt.event.MouseEvent evt) {
 
         AddCV addcv = new AddCV();
         ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int seleccionar = jTable1.rowAtPoint(evt.getPoint());
         
+        // Setting the text of the text1 object to an empty string.
         text1.setText("");
         
+        // Printing the information of the selected candidate.
         text1.append("Nombre completo: " + array.get(seleccionar).name + array.get(seleccionar).lastName);
         text1.append("\n\nCorreo electronico: " + array.get(seleccionar).email);
         text1.append("\n\nNumero de telefono: " + array.get(seleccionar).phoneNumber);
@@ -676,14 +750,25 @@ public class Results extends javax.swing.JFrame {
         text1.append("\n\nFecha inicio ultimo trabajo: " + array.get(seleccionar).startLastJob);
         text1.append("\n\nFecha finalizacion ultimo trabajo: " + array.get(seleccionar).endLastJob);
         
-        // TODO add your handling code here:
-    }//GEN-LAST:event_showCompleteInfoMouseClicked
+        
+    }
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    /**
+     * When the mouse is clicked on the table, do nothing.
+     * 
+     * @param evt The event that triggered this method.
+     */
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
 
-    }//GEN-LAST:event_jTable1MouseClicked
+    }
 
-    private void deleteByAgeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteByAgeMouseClicked
+    /**
+     * It asks the user for a minimum age of experience, then it filters the list of aspirants by that
+     * age
+     * 
+     * @param evt This is the event that is triggered when the mouse is clicked.
+     */
+    private void deleteByAgeMouseClicked(java.awt.event.MouseEvent evt) {
         AddCV addcv = new AddCV();
         ArrayList<Aspirante> array = AddCV.listaAspirantes;
         int numberOfResults = array.size();
@@ -691,6 +776,7 @@ public class Results extends javax.swing.JFrame {
         String age = JOptionPane.showInputDialog("Ingrese la edad minima de experiencia:");
         int ageToFilter = Integer.parseInt(age);
         
+        // Removing all the results that are less than the ageToFilter.
         for(int i=0; i < numberOfResults; i++){
             
             String number = array.get(i).yearsOfExperience;
@@ -701,22 +787,31 @@ public class Results extends javax.swing.JFrame {
             }
         }
         
-    }//GEN-LAST:event_deleteByAgeMouseClicked
+    }
 
-    private void hireButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hireButtonMouseClicked
+    /**
+     * This function is called when the user clicks the "Hire" button. It asks the user for the id of
+     * the applicant to hire, and then it removes the applicant from the list of applicants
+     * 
+     * @param evt The event that triggered the method.
+     */
+    private void hireButtonMouseClicked(java.awt.event.MouseEvent evt) {
         
         AddCV addcv = new AddCV();
         ArrayList<Aspirante> array = AddCV.listaAspirantes;
         
+        // Setting the text of the text2 object to an empty string.
         text2.setText("");
         
+        // Asking the user to input an id and then it is converting it to an integer.
         String id = JOptionPane.showInputDialog("Id del aspirante a contratar: ");
         int idToFilter = Integer.parseInt(id);
         
+        // Removing the element from the array.
         text2.append("El aspirante " + array.get(idToFilter).name + " " + array.get(idToFilter).lastName +" fue contratado");
         array.remove(idToFilter);
         
-    }//GEN-LAST:event_hireButtonMouseClicked
+    }
 
     /**
      * @param args the command line arguments

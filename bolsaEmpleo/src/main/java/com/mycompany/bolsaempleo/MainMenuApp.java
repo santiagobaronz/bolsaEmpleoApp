@@ -1,22 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
- */
+// The package where the class is located.
 package com.mycompany.bolsaempleo;
 
-import com.mycompany.bolsaempleo.Clases.Persona;
-import java.util.ArrayList;
-import java.lang.reflect.Array;
-
 /**
- *
- * @author santi
+ * Creating a new class called MainMenuApp that extends the JFrame class.
+ * @author Santiago Baron Zuleta
+ * Creation Date: 29/07/2022
  */
 public class MainMenuApp extends javax.swing.JFrame {
 
-    /**
-     * Creates new form visualApp
-     */
+    //Creates new form visualApp
     public MainMenuApp() {
         initComponents();   
     }
@@ -183,27 +175,38 @@ public class MainMenuApp extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    /**
+     * When the user clicks the exit menu item, exit the program.
+     * 
+     * @param evt The event that triggered the action.
+     */
+    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }
 
-    private void addButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonClicked
-        
+    /**
+     * When the add button is clicked, the current window is hidden and the add CV window is shown
+     * 
+     * @param evt The event that triggered the method.
+     */
+    private void addButtonClicked(java.awt.event.MouseEvent evt) {
         this.setVisible(false);
         AddCV v = new AddCV();
         v.setVisible(true);
-    }//GEN-LAST:event_addButtonClicked
+    }
 
-    private void checkButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkButtonClicked
+    /**
+     * When the check button is clicked, the current window is hidden and the results window is shown
+     * 
+     * @param evt The event that triggered the method.
+     */
+    private void checkButtonClicked(java.awt.event.MouseEvent evt) {
         this.setVisible(false);
         Results v = new Results();
         v.setVisible(true);
-        
-        
-
-    }//GEN-LAST:event_checkButtonClicked
+    }
 
     /**
      * @param args the command line arguments

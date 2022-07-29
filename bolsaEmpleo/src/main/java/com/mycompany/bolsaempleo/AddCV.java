@@ -1,26 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
- */
+// Importing the Aspirante class from the com.mycompany.bolsaempleo package.
 package com.mycompany.bolsaempleo;
-
 import com.mycompany.bolsaempleo.Clases.Aspirante;
-import com.mycompany.bolsaempleo.Clases.Persona;
 import java.util.ArrayList;
 
 /**
- *
- * @author santi
+ * Creating a class called AddCV which extends the JFrame class.
+ * @author Santiago Baron Zuleta
+ * Creation Date: 29/07/2022
  */
+
+
 public class AddCV extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AddCV
-     */
+
+
+    // Initializing the components of the GUI.
     public AddCV() {
-        initComponents();
-        
-        
+        initComponents();    
     }
 
     /**
@@ -565,17 +561,28 @@ public class AddCV extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    /**
+     * When the exit menu item is clicked, exit the program.
+     * 
+     * @param evt The event that triggered the action.
+     */
+    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }
 
-    private void goBackButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButtonClicked
+    /**
+     * This function is called when the user clicks the "Go Back" button. It hides the current window
+     * and shows the main menu
+     * 
+     * @param evt The event that triggered the method.
+     */
+    private void goBackButtonClicked(java.awt.event.MouseEvent evt) {
         this.setVisible(false);
         MainMenuApp v = new MainMenuApp();
         v.setVisible(true);
-    }//GEN-LAST:event_goBackButtonClicked
+    }
 
     private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
         // TODO add your handling code here:
@@ -601,8 +608,16 @@ public class AddCV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_startDateDegreeActionPerformed
 
+    // Creating an ArrayList of Aspirante objects.
     public static ArrayList<Aspirante> listaAspirantes = new ArrayList<>();
        
+    /**
+     * This function is called when the user clicks the save button, it takes the values from the text
+     * fields and saves them in a new Aspirante object, then it adds the object to the listaAspirantes
+     * list and returns to the main menu
+     * 
+     * @param evt This is the event that is triggered when the button is clicked.
+     */
     private void saveButtonClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonClicked
         
         String nameV = (String)name.getText();
@@ -615,6 +630,9 @@ public class AddCV extends javax.swing.JFrame {
         
         String genderV;
         
+        // Checking if the male radio button is selected, if it is, it will set the genderV variable to
+        // "Hombre". If the female radio button is selected, it will set the genderV variable to
+        // "Mujer". If neither are selected, it will set the genderV variable to "No Binario".
         if(male.isSelected()){
             genderV = "Hombre";
         }else if(female.isSelected()){
@@ -634,17 +652,20 @@ public class AddCV extends javax.swing.JFrame {
         String yearsOfExperienceV = (String)yearsOfExperience.getText();
         String positionLastJobV = (String)positionLastJob.getText();
         
+        // Creating a new Aspirante object with the given parameters.
         Aspirante aspirante = new Aspirante(nameV, lastNameV, emailV, phoneNumberV, ageV, idNumberV,
         professionV, genderV, educationPlaceV, degreeV, startDateDegreeV, endDateDegreeV,
         lastCompanyV, startLastJobV, endLastJobV, yearsOfExperienceV, positionLastJobV);
         
+        // Adding an aspirante to the listaAspirantes.
         listaAspirantes.add(aspirante);
         
+        // Hiding the current window and opening a new window.
         this.setVisible(false);
         MainMenuApp v = new MainMenuApp();
         v.setVisible(true);
   
-    }//GEN-LAST:event_saveButtonClicked
+    }
 
     /**
      * @param args the command line arguments
